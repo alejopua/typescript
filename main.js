@@ -1,181 +1,99 @@
 "use strict";
+const conducirBatimovil = (auto) => {
+    auto.encender = true;
+    auto.velocidadMaxima = 100;
+    auto.acelear();
+};
+const batimovil = {
+    encender: false,
+    velocidadMaxima: 0,
+    acelear() {
+        console.log("...... gogogo!!!");
+    }
+};
+const guason = {
+    reir: true,
+    comer: true,
+    llorar: false
+};
+const reir = (guason) => {
+    if (guason.reir) {
+        console.log("JAJAJAJA");
+    }
+};
+const ciudadGotica = (ciudadanos) => {
+    return ciudadanos.length;
+};
+class Person {
+    constructor(nombre, edad, sexo, estadoCivil) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.sexo = sexo;
+        this.estadoCivil = estadoCivil;
+    }
+    imprimirBio() {
+        const estadoCivilStr = this.estadoCivil ? 'casado/a' : 'soltero/a';
+        console.log(`I'm ${this.nombre}, ${this.edad} years old, ${this.sexo}, and ${estadoCivilStr}.`);
+    }
+}
+const client1 = new Person('Alejandro', 25, 'M', false);
+client1.imprimirBio();
 (() => {
-    class User {
-        constructor(name, surname) {
-            this.name = name;
-            this.surname = surname;
+    let superman = {
+        name: 'Superman',
+        age: 30,
+        powers: ['Volar', 'Super fuerza'],
+        getName() {
+            return this.name;
         }
-        getFullName() {
-            return `${this.name} ${this.surname}`;
-        }
-    }
-    class OtherInfo extends User {
-        constructor(name, surname, age, country, maritalStatus) {
-            super(name, surname);
-            this.age = age;
-            this.country = country;
-            this.maritalStatus = maritalStatus;
-        }
-        set modifyAge(age) {
-            if (typeof this.age === 'string') {
-                throw new Error("La asignación debe ser un paramatro de tipo numero");
-            }
-            this.age = age;
-        }
-        get printData() {
-            return `
-            full name: ${this.getFullName()} 
-            age: ${this.age} 
-            country: ${this.country} 
-            marital status: ${this.maritalStatus}
-            `;
-        }
-    }
-    const user1 = new OtherInfo('Catalina', 'Perez', 21, 'USA', false);
-    user1.modifyAge = 19;
-})();
-(() => {
-    class Avengers {
-        constructor(name, power) {
-            this.name = name;
-            this.power = power;
-        }
-    }
-    Avengers.team = 'Avengers';
-    const antman = new Avengers('Antman', 50);
-    class Heros {
-        constructor(name, power, realName) {
-            this.name = name;
-            this.power = power;
-            this.realName = realName;
-        }
-    }
-    Heros.team = 'DC';
-    const guason = new Heros('Guason', 100);
+    };
 })();
 (() => {
     class User {
-        constructor(name, surname) {
+        constructor(name, age, gender, address, id) {
             this.name = name;
-            this.surname = surname;
-        }
-        getFullName() {
-            return `${this.name} ${this.surname}`;
-        }
-    }
-    class OtherInfo extends User {
-        constructor(name, surname, age, country, maritalStatus) {
-            super(name, surname);
             this.age = age;
-            this.country = country;
-            this.maritalStatus = maritalStatus;
+            this.gender = gender;
+            this.address = address;
+            this.id = id;
         }
-        printData() {
-            return `
-            full name: ${this.getFullName()} 
-            age: ${this.age} 
-            country: ${this.country} 
-            marital status: ${this.maritalStatus}
-            `;
+        getTurn(position) {
+            return `${this.name} es el usuario con el turno: ${position}`;
         }
     }
-    const user1 = new OtherInfo('Catalina', 'Perez', 21, 'USA', false);
+    const user1 = new User('Jorge', 25, 'Masculino', { street: 'Av. Siempre viva', country: 'Mexico', city: 'CDMX' }, 1);
 })();
 (() => {
-    class User {
-        constructor(name, surname) {
-            this.name = name;
-            this.surname = surname;
+    const client1 = {
+        name: 'Karina',
+        age: 23,
+        gender: 'F',
+        address: {
+            street: 'Av. 1',
+            country: 'CO',
+            city: 'MED'
         }
-        getFullName() {
-            return `${this.name} ${this.surname}`;
-        }
-    }
-    class OtherInfo extends User {
-        constructor(name, surname, age, country, maritalStatus) {
-            super(name, surname);
-            this.age = age;
-            this.country = country;
-            this.maritalStatus = maritalStatus;
-        }
-        set modifyAge(age) {
-            if (typeof this.age === 'string') {
-                throw new Error("La asignación debe ser un paramatro de tipo numero");
-            }
-            this.age = age;
-        }
-        get printData() {
-            return `
-            full name: ${this.getFullName()} 
-            age: ${this.age} 
-            country: ${this.country} 
-            marital status: ${this.maritalStatus}
-            `;
-        }
-    }
-    const user1 = new OtherInfo('Catalina', 'Perez', 21, 'USA', false);
-    user1.modifyAge = 19;
+    };
 })();
 (() => {
-    class Cal {
-        constructor(a, b) {
-            this.a = a;
-            this.b = b;
-        }
-        suma() {
-            const operation = 'suma';
-            const rta = this.a + this.b;
-            return `${this.msj(rta, operation)}`;
-        }
-        resta() {
-            const operation = 'resta';
-            const rta = this.a - this.b;
-            return `${this.msj(rta, operation)}`;
-        }
-        multiplicacion() {
-            const operation = 'multiplicacion';
-            const rta = this.a * this.b;
-            return `${this.msj(rta, operation)}`;
-        }
-        division() {
-            const operation = 'division';
-            const rta = this.a / this.b;
-            return `${this.msj(rta, operation)}`;
-        }
-        msj(rta, operation) {
-            if (operation === 'division' && this.b === 0) {
-                console.log(`No se puede dividir por 0`);
-            }
-            else if (operation === 'suma' || operation === 'resta' || operation === 'multiplicacion' || operation === 'division') {
-                console.log(`El resultado de la ${operation} es ${rta}`);
-            }
-        }
-    }
-    const rta = new Cal(2, 0);
+    const sum = (a, b) => {
+        const rta = a + b;
+        return `Result: ${rta}`;
+    };
 })();
 (() => {
-    class SingleUser {
-        constructor(name, surname) {
-            this.name = name;
-            this.surname = surname;
+    const client1 = {
+        name: 'Karina',
+        age: 23,
+        gender: 'F',
+        address: {
+            street: 'Av. 1',
+            country: 'CO',
+            city: 'MED'
+        },
+        getName() {
+            return this.name;
         }
-        static getFullName(name, surname) {
-            if (!SingleUser.instance) {
-                SingleUser.instance = new SingleUser(name, surname);
-                this.box = `Hola ${name} ${surname}, eres la única`;
-                return this.box;
-            }
-            SingleUser.instance;
-            return this.box;
-        }
-    }
-    const user = SingleUser.getFullName('Catalina', 'Perez');
-    const user2 = SingleUser.getFullName('Mariana', 'Purn');
-    const user3 = SingleUser.getFullName('Rosa', 'Stewar');
-    const user4 = SingleUser.getFullName('Gani', 'Gonzi');
-    console.log(user);
-    console.log(user2);
-    console.log(user3);
-    console.log(user4);
+    };
 })();
 //# sourceMappingURL=main.js.map
